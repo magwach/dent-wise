@@ -39,6 +39,9 @@ model Doctor {
   imageUrl     String
   gender       Gender
   isActive     Boolean       @default(true)
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
   appointments Appointment[]
 
   @@map("doctors")
@@ -61,7 +64,7 @@ model Appointment {
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
   doctor Doctor @relation(fields: [doctorId], references: [id], onDelete: Cascade)
 
-  @@map("appoointments")
+  @@map("appointments")
 }
 
 enum Gender {
