@@ -1,6 +1,7 @@
 "use client";
 import AdminStats from "@/components/admin/admin.stats";
 import DoctorsManagement from "@/components/admin/doctor.management";
+import RecentAppointments from "@/components/admin/recent.appointments";
 import Navbar from "@/components/nav.bar";
 import { fetchAllAppointments } from "@/hooks/use-appointments";
 import { useFetchAllDoctors } from "@/hooks/use-doctors";
@@ -64,6 +65,7 @@ function AdminPageClient() {
           completedAppointments={stats.completedAppointments}
         />
         <DoctorsManagement />
+        <RecentAppointments />
       </div>
     </div>
   );
