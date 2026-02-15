@@ -1,4 +1,11 @@
-import { SignInButton, SignUpButton } from "@clerk/nextjs";
+import {
+  SignInButton,
+  SignUpButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from "@clerk/nextjs";
+
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "../ui/button";
@@ -40,19 +47,28 @@ function Header() {
         </div>
 
         <div className="flex items-center gap-3">
-          <SignInButton mode="modal">
-            <Button variant={"ghost"} size={"sm"} className="cursor-pointer">
-              Login
-            </Button>
-          </SignInButton>
-          <SignUpButton mode="modal">
-            <Button size={"sm"} className="cursor-pointer">
-              Sign Up
-            </Button>
-          </SignUpButton>
+          {/* Signed OUT */}
+          <SignedOut>
+            <SignInButton mode="modal">
+              <Button variant="ghost" size="sm" className="cursor-pointer">
+                Login
+              </Button>
+            </SignInButton>
+
+            <SignUpButton mode="modal">
+              <Button size="sm" className="cursor-pointer">
+                Sign Up
+              </Button>
+            </SignUpButton>
+          </SignedOut>
+
+          <SignedIn>
+            <UserButton afterSignOutUrl="/" />
+          </SignedIn>
         </div>
       </div>
     </nav>
   );
 }
+
 export default Header;

@@ -27,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <TanstackProvider>
-      <ClerkProvider>
+      <ClerkProvider afterSignOutUrl="/">
         <html lang="en">
           <body
             className={`${geistSans.variable} ${geistMono.variable} antialiased dark`}
