@@ -1,8 +1,12 @@
 "use client";
 
 import {
+  getBookedTimeSlots,
+} from "@/lib/actions/appointments";
+import {
   createDoctor,
   getAllDoctors,
+  getAvailableDoctors,
   updateDoctor,
 } from "@/lib/actions/doctors";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
@@ -49,3 +53,21 @@ export function useUpdateDoctor() {
   });
   return updatedDoctor;
 }
+
+export function useFetchAvailableDoctors() {
+  const result = useQuery({
+    queryKey: ["fetchAvailableDoctors"],
+    queryFn: getAvailableDoctors,
+  });
+  return result;
+}
+
+export function useFetchBookedTimeSlots(doctorId: string, date: string) {
+  const result = useQuery({
+    queryKey: ["fetchBookedTimeSlots"],
+    queryFn: () => getBookedTimeSlots(doctorId, date),
+    enabled: !!doctorId && !!date,
+  });
+  return result;
+}
+

@@ -22,6 +22,13 @@ type AppointmentJoined = Prisma.AppointmentGetPayload<{
   };
 }>;
 
+export interface BookAppointmentInput {
+  doctorId: string;
+  date: string;
+  time: string;
+  reason?: string;
+}
+
 export async function getAllAppointments() {
   try {
     const appointments: AppointmentJoined[] = await prisma.appointment.findMany(
@@ -148,5 +155,69 @@ export async function getUserAppointments() {
   } catch (error) {
     console.error("Failed to fetch user appointments: ", error);
     throw new Error("Error fetching user appointments");
+  }
+}
+
+export async function getBookedTimeSlots(doctorId: string, date: string) {
+  try {
+    const appointments = await prisma.appointment.findMany({
+      where: {
+        doctorId,
+        date: new Date(date),
+        status: {
+          in: ["COMPLETED", "CONFIRMED"],
+        },
+      },
+      select: { time: true },
+    });
+
+    return appointments.map((appointment) => appointment.time);
+  } catch (error) {
+    console.error("Failed to fetch booked time slots ", error);
+    return [];
+  }
+}
+
+export async function bookAppointment(input: BookAppointmentInput) {
+  try {
+    const { userId } = await auth();
+    if (!userId)
+      throw new Error("You must be authenticated to book appointment");
+    const user = await prisma.user.findUnique({ where: { clerkId: userId } });
+    if (!user) throw new Error("User not found");
+
+    if (!input.date || !input.doctorId || !input.time) {
+      throw new Error("Doctor, date and time are required");
+    }
+
+    const appointment = await prisma.appointment.create({
+      data: {
+        userId: user.id,
+        date: input.date,
+        time: input.time,
+        reason: input.reason || "General Consultation",
+        doctorId: input.doctorId,
+        status: "CONFIRMED",
+      },
+      include: {
+        user: {
+          select: {
+            firstName: true,
+            lastName: true,
+            email: true,
+          },
+        },
+        doctor: {
+          select: {
+            name: true,
+            imageUrl: true,
+          },
+        },
+      },
+    });
+    return appointment;
+  } catch (error) {
+    console.error("Failed to book appointments: ", error);
+    throw new Error("Error booking appointments");
   }
 }

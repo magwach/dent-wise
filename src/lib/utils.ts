@@ -22,9 +22,56 @@ export const formatPhoneNumber = (value: string) => {
 export function generateAvatar(name: string, gender: Gender) {
   const seed = name.replace(/\s+/g, "").toLowerCase();
 
-  const style = gender === "FEMALE"
-    ? "personas"
-    : "adventurer";
+  const style = gender === "FEMALE" ? "personas" : "adventurer";
 
   return `https://api.dicebear.com/7.x/${style}/svg?seed=${seed}`;
 }
+
+export const APPOINTMENT_TYPES = [
+  { id: "checkup", name: "Regular Checkup", duration: "60 min", price: "$120" },
+  { id: "cleaning", name: "Teeth Cleaning", duration: "45 min", price: "$90" },
+  {
+    id: "consultation",
+    name: "Consultation",
+    duration: "30 min",
+    price: "$75",
+  },
+  {
+    id: "emergency",
+    name: "Emergency Visit",
+    duration: "30 min",
+    price: "$150",
+  },
+];
+
+
+export const getAvailableTimeSlots = () => {
+  return [
+    "09:00",
+    "09:30",
+    "10:00",
+    "10:30",
+    "11:00",
+    "11:30",
+    "14:00",
+    "14:30",
+    "15:00",
+    "15:30",
+    "16:00",
+    "16:30",
+  ];
+};
+
+export const getNext5Days = () => {
+  const dates = [];
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+
+  for (let i = 0; i < 5; i++) {
+    const date = new Date(tomorrow);
+    date.setDate(date.getDate() + i);
+    dates.push(date.toISOString().split("T")[0]);
+  }
+
+  return dates;
+};
