@@ -5,6 +5,7 @@ import { prisma } from "../prisma";
 import { Doctor, Gender } from "@/generated/prisma/browser";
 import { generateAvatar } from "../utils";
 import { revalidatePath } from "next/cache";
+import { auth } from "@clerk/nextjs/server";
 
 export type DoctorWithCount = Prisma.DoctorGetPayload<{
   include: {
@@ -111,5 +112,33 @@ export async function updateDoctor(input: Doctor) {
   } catch (error) {
     console.error("Failde to update Doctor", error);
     throw new Error("Error updating doctor");
+  }
+}
+
+export async function getAvailableDoctors() {
+  try {
+    const { userId } = await auth();
+    if (!userId) throw new Error("Not Authenticated");
+    const user = await prisma.user.findUnique({
+      where: { clerkId: userId },
+    });
+    if (!user) throw new Error("User not found");
+
+    const availableDoctors = await prisma.doctor.findMany({
+      where: { isActive: true },
+      include: {
+        _count: {
+          select: { appointments: true },
+        },
+      },
+    });
+
+    return availableDoctors.map((doctor) => ({
+      ...doctor,
+      appointmentCount: doctor._count.appointments,
+    }));
+  } catch (error) {
+    console.error("Failed to fetch available doctors: ", error);
+    throw new Error("Error fetching available doctors");
   }
 }

@@ -51,7 +51,7 @@ model Appointment {
   id        String            @id @default(cuid())
   date      DateTime
   time      String
-  duration  Int
+  duration  Int?
   status    AppointmentStatus @default(CONFIRMED)
   notes     String?
   reason    String?
