@@ -1,8 +1,6 @@
 "use client";
 
-import {
-  getBookedTimeSlots,
-} from "@/lib/actions/appointments";
+import { getBookedTimeSlots } from "@/lib/actions/appointments";
 import {
   createDoctor,
   getAllDoctors,
@@ -46,6 +44,9 @@ export function useUpdateDoctor() {
       queryClient.invalidateQueries({
         queryKey: ["fetchAllDoctors"],
       });
+      queryClient.invalidateQueries({
+        queryKey: ["fetchAvailableDoctors"],
+      });
     },
     onError() {
       console.error("Doctor creation failed");
@@ -70,4 +71,3 @@ export function useFetchBookedTimeSlots(doctorId: string, date: string) {
   });
   return result;
 }
-
