@@ -24,7 +24,7 @@ export function useUpdateAppointmentStatus() {
     mutationFn: updateAppointmentStatus,
     onSuccess() {
       queryClient.invalidateQueries({
-        queryKey: ["fetchAllAppointments"],
+        queryKey: ["updateAppointmentStatus"],
       });
     },
   });

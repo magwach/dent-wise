@@ -1,9 +1,9 @@
 "use client";
-import { useAvailableDoctors } from "@/hooks/use-doctors";
+import { useFetchAvailableDoctors } from "@/hooks/use-doctors";
 import Image from "next/image";
 
 function DoctorInfo({ doctorId }: { doctorId: string }) {
-  const { data: doctors = [] } = useAvailableDoctors();
+  const { data: doctors = [] } = useFetchAvailableDoctors();
   const doctor = doctors.find((d) => d.id === doctorId);
 
   if (!doctor) return null;
@@ -16,6 +16,7 @@ function DoctorInfo({ doctorId }: { doctorId: string }) {
         width={48}
         height={48}
         className="w-12 h-12 rounded-full object-cover"
+        unoptimized
       />
       <div>
         <h3 className="font-medium">{doctor.name}</h3>
