@@ -19,6 +19,7 @@ export default function MainActions() {
                 width={32}
                 height={32}
                 className="w-10"
+                unoptimized
               />
             </div>
             <div>
@@ -70,6 +71,7 @@ export default function MainActions() {
                 width={32}
                 height={32}
                 className="w-10"
+                unoptimized
               />
             </div>
             <div>

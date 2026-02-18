@@ -59,6 +59,7 @@ export default function AppointmentConfirmationModal({
                 width={120}
                 height={120}
                 className="mx-auto"
+                unoptimized
               />
             </div>
 

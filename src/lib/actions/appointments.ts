@@ -193,7 +193,7 @@ export async function bookAppointment(input: BookAppointmentInput) {
     const appointment = await prisma.appointment.create({
       data: {
         userId: user.id,
-        date: input.date,
+        date: new Date(input.date),
         time: input.time,
         reason: input.reason || "General Consultation",
         doctorId: input.doctorId,

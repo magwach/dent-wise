@@ -9,6 +9,7 @@ import Navbar from "@/components/nav.bar";
 import { useBookAppointment, useUserAppointments } from "@/hooks/use-appointments";
 import { APPOINTMENT_TYPES } from "@/lib/utils";
 import { format } from "date-fns";
+import Image from "next/image";
 import { useState } from "react";
 import { toast } from "sonner";
 
@@ -180,10 +181,11 @@ function AppointmentsPage() {
               >
                 <div className="flex items-center gap-3 mb-3">
                   <div className="size-10 bg-primary/10 rounded-full flex items-center justify-center">
-                    <img
+                    <Image
                       src={appointment.doctorImageUrl}
                       alt={appointment.doctorName}
                       className="size-10 rounded-full"
+                      unoptimized
                     />
                   </div>
                   <div>
