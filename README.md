@@ -12,13 +12,20 @@ DentWise is an AI-powered dental assistant web application that provides instant
 
 **Features**
 
-🤖 AI Dental Chat — Ask any dental question and get instant, expert-level guidance trained on thousands of real dental cases
-🎙️ Voice Agent — Talk to the AI assistant hands-free via voice calls
-📅 Appointment Booking — Schedule with verified dentists in your area
-💡 Symptom Assessment — Describe your symptoms and receive actionable advice on urgency and next steps
-📊 Personalized Care Plans — Get recommendations tailored to your dental history and concerns
-📋 Health Reports — Detailed reports and call history for ongoing care tracking
-🔔 Appointment Reminders — Never miss a scheduled visit
+    🤖 AI Dental Chat — Ask any dental question and get instant, expert-level guidance trained on thousands of real dental cases
+    
+    🎙️ Voice Agent — Talk to the AI assistant hands-free via voice calls
+    
+    📅 Appointment Booking — Schedule with verified dentists in your area
+    
+    💡 Symptom Assessment — Describe your symptoms and receive actionable advice on urgency and next steps
+    
+    📊 Personalized Care Plans — Get recommendations tailored to your dental history and concerns
+    
+    📋 Health Reports — Detailed reports and call history for ongoing care tracking
+    
+    🔔 Appointment Reminders — Never miss a scheduled visit
+
 
 
 **How It Works**
@@ -30,12 +37,12 @@ DentWise is an AI-powered dental assistant web application that provides instant
 **Pricing**
 
 
-    | Plan | Price | Highlights |
-    |------|-------|------------|
-    | **Free** | $0/month | Unlimited appointment booking, find local dentists, basic chat support |
-    | **AI Basic** | $9/month | 10 AI voice calls/month, symptom assessment, call history & recordings |
-    | **AI Pro** | $19/month | Unlimited AI voice calls, advanced analysis, personalized care plans, 24/7 priority support |
-    
+| Plan | Price | Highlights |
+|------|-------|------------|
+| **Free** | $0/month | Unlimited appointment booking, find local dentists, basic chat support |
+| **AI Basic** | $9/month | 10 AI voice calls/month, symptom assessment, call history & recordings |
+| **AI Pro** | $19/month | Unlimited AI voice calls, advanced analysis, personalized care plans, 24/7 priority support |
+
 
 **Tech Stack**
 
