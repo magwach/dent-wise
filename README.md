@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+**DentWise 🦷**
 
-## Getting Started
+AI-powered dental assistant that answers your dental questions instantly.
 
-First, run the development server:
+**Live Demo**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+    https://dent-wise-sz9z.vercel.app/
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Overview**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+DentWise is an AI-powered dental assistant web application that provides instant answers to dental questions, personalized care recommendations, and seamless appointment booking — all available 24/7. Trusted by 1,200+ patients with a 4.9/5 rating.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+**Features**
 
-## Learn More
+🤖 AI Dental Chat — Ask any dental question and get instant, expert-level guidance trained on thousands of real dental cases
+🎙️ Voice Agent — Talk to the AI assistant hands-free via voice calls
+📅 Appointment Booking — Schedule with verified dentists in your area
+💡 Symptom Assessment — Describe your symptoms and receive actionable advice on urgency and next steps
+📊 Personalized Care Plans — Get recommendations tailored to your dental history and concerns
+📋 Health Reports — Detailed reports and call history for ongoing care tracking
+🔔 Appointment Reminders — Never miss a scheduled visit
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**How It Works**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+    Ask Questions — Chat or use voice to describe any dental concern. Get instant answers about symptoms, treatments, and oral health tips.
+    Get Expert Advice — Receive AI-generated, personalized recommendations based on thousands of dental cases.
+    Book & Get Care — Schedule with verified dentists and track your follow-up care seamlessly.
 
-## Deploy on Vercel
+**Pricing**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+    | Plan | Price | Highlights |
+    |------|-------|------------|
+    | **Free** | $0/month | Unlimited appointment booking, find local dentists, basic chat support |
+    | **AI Basic** | $9/month | 10 AI voice calls/month, symptom assessment, call history & recordings |
+    | **AI Pro** | $19/month | Unlimited AI voice calls, advanced analysis, personalized care plans, 24/7 priority support |
+    
+
+**Tech Stack**
+
+    Framework: Next.js
+    Deployment: Vercel
+    AI: Voice agent & conversational AI for dental guidance
+
+
+**Getting Started**
+
+    git clone <your-repo-url>
+    cd dent-wise
+
+# Install dependencies
+
+    npm install
+
+# Run the development server
+
+    npm run dev
+    Open http://localhost:3000 in your browser.
+
+Contributing
+Contributions are welcome! Please open an issue or submit a pull request.
